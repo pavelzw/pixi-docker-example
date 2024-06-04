@@ -10,7 +10,7 @@ COPY --from=build /app/.pixi/envs/prod /app/.pixi/envs/prod
 COPY ./my_project /app/my_project
 EXPOSE 8000
 # from pixi shell-hook -e prod
-# add a /busybox to the PATH, otherwise you can't run any commands
-ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/busybox
+ENV PATH=/app/.pixi/envs/prod/bin:$PATH
 ENV CONDA_PREFIX=/app/.pixi/envs/default
-CMD ["/app/.pixi/envs/prod/bin/uvicorn", "my_project:app", "--host", "0.0.0.0"]
+ENTRYPOINT []
+CMD [ "uvicorn", "my_project:app", "--host", "0.0.0.0" ]

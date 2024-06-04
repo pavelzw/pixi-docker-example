@@ -4,4 +4,4 @@ WORKDIR /app
 COPY . .
 RUN pixi install --locked
 EXPOSE 8000
-CMD ["pixi", "run", "start"]
+CMD [ "pixi", "run", "start" ]

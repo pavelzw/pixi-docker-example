@@ -1,4 +1,4 @@
 .pixi/
-
 __pycache__/
 *.pyc
+Dockerfile
