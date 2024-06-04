@@ -1,0 +1,18 @@
+#!/usr/bin/env just --justfile
+
+tag := "4-prod-environment"
+
+_default:
+    @just --choose
+
+build:
+    docker build --platform linux/amd64 -t pixi-docker-example:{{ tag }} .
+
+run:
+    docker run --rm -it -p 8000:8000 pixi-docker-example:{{ tag }}
+
+history:
+    docker history pixi-docker-example:{{ tag }}
+
+ls:
+    docker image ls pixi-docker-example:{{ tag }}
