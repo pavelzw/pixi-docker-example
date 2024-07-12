@@ -11,6 +11,6 @@ COPY ./my_project /app/my_project
 EXPOSE 8000
 # from pixi shell-hook -e prod
 ENV PATH=/app/.pixi/envs/prod/bin:$PATH
-ENV CONDA_PREFIX=/app/.pixi/envs/default
+ENV CONDA_PREFIX=/app/.pixi/envs/prod
 ENTRYPOINT []
 CMD [ "uvicorn", "my_project:app", "--host", "0.0.0.0" ]
