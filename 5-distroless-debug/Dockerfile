@@ -9,7 +9,7 @@ WORKDIR /app
 COPY --from=build /app/.pixi/envs/prod /app/.pixi/envs/prod
 COPY ./my_project /app/my_project
 EXPOSE 8000
-# from pixi shell-hook -e prod
+# from pixi shell-hook -e prod --as-is
 ENV PATH=/app/.pixi/envs/prod/bin:$PATH
 ENV CONDA_PREFIX=/app/.pixi/envs/prod
 ENTRYPOINT []

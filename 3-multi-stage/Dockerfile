@@ -3,7 +3,7 @@ FROM ghcr.io/prefix-dev/pixi:0.23.0 AS build
 WORKDIR /app
 COPY . .
 RUN pixi install --locked
-RUN pixi shell-hook -s bash > /shell-hook
+RUN pixi shell-hook -s bash --as-is > /shell-hook
 RUN echo "#!/bin/bash" > /app/entrypoint.sh
 RUN cat /shell-hook >> /app/entrypoint.sh
 RUN echo 'exec "$@"' >> /app/entrypoint.sh
